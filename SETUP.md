@@ -1,353 +1,279 @@
-# 🚀 RawShot Bot - Complete Setup Guide
+# 📋 RawShot Bot - Complete Setup Guide
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js 18+ installed
-- Telegram Bot Token (already have: `8974371850:AAHL4aj6iNVhL9DhiuwAL6-O8x1jsMAn7kU`)
-- Vercel Account (free)
-- Git installed
+- Telegram account
+- GitHub account (recommended)
+- Vercel account (free)
 
----
+## 🔧 Step 1: Get Telegram Bot Token
 
-## 🔧 Local Setup
+### Create Bot via BotFather
 
-### Step 1: Clone/Download Files
+```
+1. Open Telegram
+2. Search for @BotFather
+3. Send /newbot
+4. Enter bot name: RawShot
+5. Enter username: rawshot_bot (or unique name)
+6. Copy the token provided
+```
+
+**Keep this token safe!**
+
+## 📁 Step 2: Setup Local Files
 
 ```bash
-# Create a new directory
+# Create folder
 mkdir rawshot-bot
 cd rawshot-bot
 
-# Copy all files here:
+# Download/Copy all files here:
 # - rawshot-bot.ts
 # - package.json
 # - tsconfig.json
 # - .env.example
+# - vercel.json
+# - .gitignore
+# - README.md
+# - QUICKSTART.md
+# - SETUP.md
 ```
 
-### Step 2: Install Dependencies
-
-```bash
-npm install
-```
-
-This will install:
-- `grammy` - Telegram bot framework
-- `dotenv` - Environment variables
-- TypeScript and related tools
-
-### Step 3: Setup Environment Variables
-
-Create `.env` file (copy from `.env.example`):
+## 🔑 Step 3: Create .env File
 
 ```bash
 cp .env.example .env
 ```
 
-**Your `.env` file should look like:**
+**Edit `.env` file:**
 
 ```
-BOT_TOKEN=8974371850:AAHL4aj6iNVhL9DhiuwAL6-O8x1jsMAn7kU
-ADMIN_ID=6924478999
+BOT_TOKEN=paste_your_token_here
+ADMIN_ID=your_telegram_user_id
 ```
 
-### Step 4: Build TypeScript
+**Get your User ID:**
+- Send any message to @userinfobot
+- It will show your ID
+
+## 📦 Step 4: Install Dependencies
+
+```bash
+npm install
+```
+
+This installs:
+- grammy (Telegram bot framework)
+- dotenv (environment variables)
+- TypeScript tools
+
+## 🧪 Step 5: Test Locally (Optional)
 
 ```bash
 npm run build
-```
-
-This creates `dist/` folder with compiled JavaScript.
-
-### Step 5: Test Locally (Optional)
-
-```bash
 npm run dev
 ```
 
-The bot will start and you can test it by messaging @rawshot_bot on Telegram.
+**Then on Telegram:**
+- Search for your bot
+- Send /start
+- Try /help and /info
+- Forward a message
 
-**To stop:** Press `Ctrl + C`
+Stop with: `Ctrl + C`
 
----
+## 🌐 Step 6: GitHub Setup
 
-## 🌐 Deploy to Vercel (Recommended)
-
-### Step 1: Create Vercel Account
-
-1. Go to https://vercel.com
-2. Sign up (or login)
-3. Click "New Project"
-
-### Step 2: Connect GitHub Repository
-
-**Option A: Using GitHub (Recommended)**
+### Initialize Git
 
 ```bash
-# Initialize git
 git init
+git config user.name "Your Name"
+git config user.email "your@email.com"
+```
+
+### Create GitHub Repository
+
+1. Go to github.com
+2. Click "New repository"
+3. Name: rawshot-bot
+4. Make it Public or Private
+5. Click "Create repository"
+
+### Push Code
+
+```bash
 git add .
 git commit -m "Initial commit: RawShot Bot"
-
-# Create GitHub repo (on github.com)
-# Then:
 git remote add origin https://github.com/YOUR_USERNAME/rawshot-bot.git
 git branch -M main
 git push -u origin main
 ```
 
-Then on Vercel:
-- Click "New Project"
-- Select your GitHub repository
-- Click "Import"
+## 🚀 Step 7: Deploy on Vercel
 
-**Option B: Direct Upload**
+### Option A: GitHub Integration (Recommended)
+
+1. Go to vercel.com
+2. Click "New Project"
+3. Click "Import Git Repository"
+4. Select your GitHub repository
+5. Click "Import"
+
+### Option B: Vercel CLI
 
 ```bash
-# Install Vercel CLI
 npm i -g vercel
-
-# Login
 vercel login
-
-# Deploy
-vercel
+vercel --prod
 ```
 
-### Step 3: Configure Vercel
+## 🔑 Step 8: Add Environment Variables
 
-In Vercel Dashboard:
+**In Vercel Dashboard:**
 
-1. Go to Project Settings
-2. Click "Environment Variables"
-3. Add:
+1. Project Settings
+2. Environment Variables
+3. Add Variable:
    - Key: `BOT_TOKEN`
-   - Value: `8974371850:AAHL4aj6iNVhL9DhiuwAL6-O8x1jsMAn7kU`
-4. Add:
+   - Value: `your_bot_token`
+4. Add Variable:
    - Key: `ADMIN_ID`
-   - Value: `6924478999`
+   - Value: `your_user_id`
 5. Click "Save"
 
-### Step 4: Create Vercel Configuration
+Vercel will auto-redeploy.
 
-Create `vercel.json`:
+## ✅ Step 9: Verify Deployment
 
-```json
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "functions": {
-    "rawshot-bot.ts": {
-      "runtime": "nodejs18.x"
-    }
-  }
-}
-```
+### Check Vercel Status
 
-### Step 5: Deploy
+1. Go to vercel.com
+2. Click on your project
+3. Check "Deployments" tab
+4. Wait for green checkmark ✅
 
-```bash
-vercel deploy --prod
-```
+### Test on Telegram
 
-Or trigger auto-deploy by pushing to GitHub:
+1. Search for @rawshot_bot
+2. Send /start
+3. Bot should respond! ✅
 
-```bash
-git push origin main
-```
+If not:
+- Wait 2-3 minutes
+- Check Vercel logs
+- Verify environment variables
 
----
+## 🔄 Step 10: Update Code Later
 
-## 🤖 Setup Webhook (For Vercel)
-
-After deployment, update your bot's webhook:
+### Make Changes Locally
 
 ```bash
-# Replace YOUR_VERCEL_URL with your actual Vercel domain
-curl "https://api.telegram.org/bot8974371850:AAHL4aj6iNVhL9DhiuwAL6-O8x1jsMAn7kU/setWebhook?url=https://YOUR_VERCEL_URL/api/webhook"
+# Edit rawshot-bot.ts (or other files)
+# Test locally
+npm run build
+npm run dev
 ```
 
-**Example:**
-```bash
-curl "https://api.telegram.org/bot8974371850:AAHL4aj6iNVhL9DhiuwAL6-O8x1jsMAn7kU/setWebhook?url=https://rawshot-bot.vercel.app/api/webhook"
-```
-
----
-
-## 🧪 Testing the Bot
-
-1. Open Telegram
-2. Search for `@rawshot_bot`
-3. Click "Start"
-4. Try these commands:
-
-```
-/start      - Welcome message
-/help       - Help information
-/info       - Your account info
-[forward message] - See extracted data
-```
-
----
-
-## 📊 What the Bot Does
-
-**When you forward a message:**
-1. Extracts all user information
-2. Extracts chat/group/channel info
-3. Extracts message details
-4. Analyzes media (photos, videos, documents)
-5. Shows reply/forward information
-6. Generates JSON data
-7. Exports as CSV
-
-**Output includes:**
-- User ID, Username, Name
-- Chat ID, Chat Type
-- Message ID, Timestamp
-- Photo dimensions, Video duration, Document size
-- Complete JSON response
-- CSV export file
-
----
-
-## 🔄 Updating the Bot
-
-### To modify the code:
-
-1. Edit `rawshot-bot.ts`
-2. Build: `npm run build`
-3. Test: `npm run dev`
-4. Push to GitHub:
+### Push to GitHub
 
 ```bash
 git add .
-git commit -m "Update: [your changes]"
+git commit -m "Update: description of changes"
 git push origin main
 ```
 
-Vercel will automatically redeploy!
-
----
+Vercel will auto-deploy! 🎉
 
 ## 🐛 Troubleshooting
 
-### Bot not responding
+### Bot not responding?
 
-1. Check environment variables in Vercel
-2. Verify BOT_TOKEN is correct
-3. Check Vercel logs: `vercel logs`
+**Check:**
+1. BOT_TOKEN in .env is correct?
+2. Vercel deployment successful?
+3. Bot is online in Telegram?
 
-### Build errors
+**Fix:**
+1. Verify token from BotFather
+2. Check Vercel logs: https://vercel.com
+3. Wait 2-3 minutes for deployment
+
+### Build error?
 
 ```bash
-# Clear cache
+# Clean and rebuild
+rm -rf node_modules dist
+npm install
 npm run build
-
-# Check for TypeScript errors
-npx tsc --noEmit
 ```
 
-### Webhook errors
+### Can't push to GitHub?
 
 ```bash
-# Check webhook status
-curl "https://api.telegram.org/bot8974371850:AAHL4aj6iNVhL9DhiuwAL6-O8x1jsMAn7kU/getWebhookInfo"
+# Verify remote
+git remote -v
+
+# If wrong:
+git remote remove origin
+git remote add origin https://github.com/YOUR_USERNAME/rawshot-bot.git
+git push -u origin main
 ```
 
----
+### Environment variables not working?
 
-## 📝 File Structure
+1. Vercel Dashboard
+2. Settings → Environment Variables
+3. Check names exactly match code
+4. Redeploy
+
+## 📊 File Structure
 
 ```
 rawshot-bot/
-├── rawshot-bot.ts       # Main bot code
-├── package.json         # Dependencies
-├── tsconfig.json        # TypeScript config
-├── .env                 # Environment variables (create from .env.example)
-├── .env.example         # Example variables
-├── vercel.json          # Vercel config
-├── SETUP.md            # This file
-├── dist/               # Compiled JavaScript (auto-generated)
-└── node_modules/       # Dependencies (auto-generated)
+├── rawshot-bot.ts      # Main bot code
+├── package.json        # Dependencies
+├── tsconfig.json       # TypeScript config
+├── .env.example        # Template (commit this)
+├── .env               # Actual (don't commit!)
+├── vercel.json        # Vercel config
+├── .gitignore         # Git ignore rules
+├── README.md          # Full documentation
+├── QUICKSTART.md      # Fast start
+├── SETUP.md           # This file
+└── dist/              # Compiled code (auto-generated)
 ```
 
----
+## ✨ Success Checklist
 
-## 🚀 Advanced Options
+- [ ] Bot token created
+- [ ] .env file setup
+- [ ] npm install done
+- [ ] Local test passed
+- [ ] Code pushed to GitHub
+- [ ] Vercel connected
+- [ ] Environment variables added
+- [ ] Deployment successful (green checkmark)
+- [ ] Bot responds on Telegram
 
-### Option 1: Add to More Chats
+## 🎉 Done!
 
-The bot works in:
-- ✅ Private messages (1-on-1)
-- ✅ Groups
-- ✅ Supergroups
-- ✅ Channels (if bot is admin)
+Your bot is now live and ready to use!
 
-### Option 2: Rate Limiting
-
-Add to the code to limit free usage:
-
-```typescript
-const userUsage: Map<number, number> = new Map();
-const DAILY_LIMIT = 10;
-
-// Check before processing
-if (!userUsage.has(userId)) {
-  userUsage.set(userId, 0);
-}
-
-const usage = userUsage.get(userId) || 0;
-if (usage >= DAILY_LIMIT) {
-  await ctx.reply("Daily limit reached");
-  return;
-}
+```
+Bot: @rawshot_bot
+Status: Active ✅
+Data extraction: Working ✅
+Exports: JSON + CSV ✅
 ```
 
-### Option 3: Database Integration
+## 📞 Need Help?
 
-To add database:
+- Check GitHub issues
+- Read README.md
+- Review logs in Vercel
+- Test locally first
 
-```typescript
-import { neon } from '@neondatabase/serverless';
-
-const db = neon(process.env.DATABASE_URL);
-
-// Log usage
-await db('INSERT INTO logs (user_id, action) VALUES ($1, $2)', [userId, 'extract']);
-```
-
----
-
-## 📞 Support
-
-- Telegram: @rawshot_bot
-- Issues: Check the code or Vercel logs
-- Performance: Monitor at Vercel Dashboard
-
----
-
-## 📄 License
-
-MIT License - Free to use and modify!
-
----
-
-## ✨ Features Summary
-
-| Feature | Status |
-|---------|--------|
-| User data extraction | ✅ |
-| Chat/Group ID extraction | ✅ |
-| Media information | ✅ |
-| JSON export | ✅ |
-| CSV export | ✅ |
-| Reply/Forward tracking | ✅ |
-| Inline keyboard data | ✅ |
-| Message timestamp | ✅ |
-| Beautiful formatting | ✅ |
-| Vercel deployment | ✅ |
-
----
-
-**Happy deploying! 🎉**
+**Happy bot building!** 🚀

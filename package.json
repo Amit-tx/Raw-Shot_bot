@@ -9,12 +9,7 @@
     "dev": "ts-node rawshot-bot.ts",
     "watch": "tsc --watch"
   },
-  "keywords": [
-    "telegram",
-    "bot",
-    "data-extraction",
-    "grammy"
-  ],
+  "keywords": ["telegram", "bot", "data-extraction", "grammy"],
   "author": "Amit Yadav",
   "license": "MIT",
   "dependencies": {

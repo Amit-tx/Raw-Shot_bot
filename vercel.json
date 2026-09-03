@@ -1,21 +1,4 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "env": [
-    {
-      "key": "BOT_TOKEN",
-      "description": "Telegram Bot Token from @BotFather"
-    },
-    {
-      "key": "ADMIN_ID",
-      "description": "Admin User ID for managing the bot"
-    }
-  ],
-  "functions": {
-    "rawshot-bot.ts": {
-      "runtime": "nodejs18.x",
-      "memory": 128,
-      "maxDuration": 60
-    }
-  }
+  "outputDirectory": "dist"
 }

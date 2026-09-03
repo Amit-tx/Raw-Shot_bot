@@ -2,476 +2,216 @@
 
 **Extract complete raw data from any Telegram message!**
 
----
-
 ## 📊 What is RawShot?
 
-RawShot is a powerful Telegram bot that extracts and analyzes all raw data from messages, including:
+RawShot is a powerful Telegram bot that extracts and analyzes all raw data from messages.
 
-✨ **User Information**
-- User ID
-- Username
-- Full Name
-- Language Code
-- Bot/Premium Status
+### ✨ Features:
 
-💬 **Chat Information**
-- Chat ID
-- Group/Channel ID
-- Chat Type
-- Chat Title
-
-📨 **Message Details**
-- Message ID
-- Timestamp & Date
-- Message Text
-- Caption
-
-🎥 **Media Information**
-- Photo dimensions
-- Video duration & resolution
-- Audio/Voice duration
-- Document name & size
-- Animation details
-
-📍 **Advanced Features**
-- Reply/Forward tracking
-- Inline keyboard data
-- Deep-link parameters
-- Entity information
-- Complete JSON export
-- CSV export
-
----
-
-## 🎯 Use Cases
-
-```
-1. 🔍 Data Analysis
-   - Analyze Telegram message structure
-   - Extract metadata for research
-
-2. 👨‍💻 Development
-   - Test Telegram Bot API integration
-   - Debug bot interactions
-   - Learn API responses
-
-3. 📊 Research & Analytics
-   - Study message patterns
-   - Analyze group dynamics
-   - User behavior research
-
-4. 🔐 Security
-   - Identify bot behavior
-   - Detect suspicious patterns
-   - Analyze forwarding chains
-
-5. 📱 Content Management
-   - Extract media metadata
-   - Batch analyze messages
-   - Audit media information
-```
-
----
-
-## 💻 Tech Stack
-
-```
-Frontend: Telegram Bot (Grammy Framework)
-Runtime: Node.js 18+
-Language: TypeScript
-Hosting: Vercel (Free)
-Framework: Grammy v1.24+
-```
-
----
+- **User Information**: ID, username, name, language, premium status
+- **Chat Details**: Chat ID, group/channel info
+- **Message Data**: Message ID, timestamp, content
+- **Media Analysis**: Photo dimensions, video duration, document info
+- **Advanced Tracking**: Reply chains, forward history
+- **Multiple Exports**: JSON format, CSV download
 
 ## 🚀 Quick Start
 
-### 1️⃣ **Local Development**
+### 1. Get Bot Token
+1. Message `@BotFather` on Telegram
+2. Use `/newbot` command
+3. Follow the steps
+4. Copy your bot token
 
+### 2. Clone/Setup Files
 ```bash
-# Install dependencies
+mkdir rawshot-bot
+cd rawshot-bot
+# Copy all files here
+```
+
+### 3. Install Dependencies
+```bash
 npm install
+```
 
-# Build TypeScript
+### 4. Setup Environment
+```bash
+cp .env.example .env
+# Edit .env with your bot token and user ID
+```
+
+### 5. Test Locally (Optional)
+```bash
 npm run build
-
-# Run locally
 npm run dev
 ```
 
-### 2️⃣ **Deploy to Vercel**
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel --prod
-```
-
-### 3️⃣ **Start Using**
-
-- Open Telegram
-- Search `@rawshot_bot`
-- Send `/start`
-- Forward any message to extract data!
-
----
+### 6. Deploy to Vercel
+1. Push to GitHub
+2. Connect Vercel
+3. Add environment variables
+4. Deploy!
 
 ## 📋 Commands
 
-| Command | Description | Example |
-|---------|-------------|---------|
-| `/start` | Welcome message | `/start` |
-| `/help` | Help & features | `/help` |
-| `/info` | Your account info | `/info` |
-| Forward message | Extract data | Forward any message |
+| Command | Description |
+|---------|-------------|
+| `/start` | Welcome message |
+| `/help` | Help & features |
+| `/info` | Your account info |
+| Forward any message | Extract data |
 
----
+## 💻 Tech Stack
 
-## 📸 Example Usage
+- **Runtime**: Node.js 18+
+- **Language**: TypeScript
+- **Framework**: Grammy (Telegram Bot)
+- **Hosting**: Vercel (Free)
+- **No Database**: Pure processing
 
-### Input
-Forward any Telegram message to @rawshot_bot
+## 🔐 Security
 
-### Output
-
-The bot will send you:
-
-1. **Formatted Text Message** - Readable summary
-```
-📊 Extracted Data
-
-👤 User Info:
-🔹 ID: `6924478999`
-🔹 Username: @Amit_yadav_tx
-🔹 Name: Amit Yadav
-🔹 Is Bot: No ❌
-🔹 Is Premium: No
-
-💬 Chat Info:
-🔹 ID: `6924478999`
-🔹 Type: private
-
-📨 Message Info:
-🔹 Message ID: `5459162`
-🔹 Timestamp: `1725274800`
-```
-
-2. **Raw JSON** - Complete API response
-```json
-{
-  "user": {
-    "id": 6924478999,
-    "is_bot": false,
-    "first_name": "Amit",
-    "username": "Amit_yadav_tx",
-    "language_code": "en"
-  },
-  ...
-}
-```
-
-3. **CSV File** - Data export
-```
-Field,Value
-User ID,6924478999
-Username,@Amit_yadav_tx
-First Name,Amit
-...
-```
-
----
-
-## 🔧 Configuration
-
-Create `.env` file:
-
-```env
-BOT_TOKEN=your_bot_token_here
-ADMIN_ID=your_user_id_here
-```
-
-Get these values:
-- **BOT_TOKEN**: From @BotFather on Telegram
-- **ADMIN_ID**: Use `/id` in any bot chat
-
----
+- ✅ Bot token in `.env` (not in repo)
+- ✅ No data storage
+- ✅ No tracking
+- ✅ Private by default
+- ✅ `.gitignore` protects secrets
 
 ## 📁 Project Structure
 
 ```
 rawshot-bot/
-├── rawshot-bot.ts          # Main bot code
-├── package.json            # Dependencies
-├── tsconfig.json           # TypeScript config
-├── vercel.json             # Vercel config
-├── .env.example            # Example env file
-├── .env                    # Actual env (gitignored)
-├── SETUP.md               # Detailed setup guide
-├── README.md              # This file
-├── dist/                  # Compiled JavaScript
-└── node_modules/          # Dependencies
+├── rawshot-bot.ts       # Main bot code
+├── package.json         # Dependencies
+├── tsconfig.json        # TypeScript config
+├── .env.example         # Environment template
+├── .env                 # Your actual env (create this)
+├── vercel.json          # Vercel config
+├── .gitignore          # Git security
+├── README.md           # This file
+└── dist/               # Compiled code (auto-generated)
 ```
 
----
+## 🎯 Data Extracted
 
-## 🔐 Privacy & Security
+### User Information
+```
+- User ID
+- Username
+- First & Last Name
+- Language Code
+- Bot Status
+- Premium Status
+```
 
-✅ **What the bot does:**
-- Reads messages you forward
-- Extracts metadata
-- Shows you the data
+### Chat Information
+```
+- Chat ID
+- Chat Type (private/group/channel)
+- Group/Channel Title
+- Chat Members
+```
 
-✅ **What the bot doesn't do:**
-- Store any data (unless you add database)
-- Access private chats without forwarding
-- Track users
-- Share data with anyone
+### Message Details
+```
+- Message ID
+- Timestamp
+- Message Text
+- Caption
+- Edit Date
+```
 
----
+### Media Information
+```
+- Photo: dimensions, file size
+- Video: duration, resolution, file size
+- Audio: duration, title, performer
+- Voice: duration, file size
+- Document: file name, type, size
+- Animation: duration, dimensions
+```
 
-## 🌟 Features Breakdown
+### Advanced Data
+```
+- Reply Information
+- Forward History
+- Inline Keyboard Data
+- Entity Information
+- Complete JSON Response
+```
 
-### Level 1: Basic Extraction
-- User ID extraction
-- Chat ID extraction
-- Message ID extraction
-- Simple formatting
+## 🧪 Testing
 
-### Level 2: Media Analysis
-- Photo dimensions
-- Video metadata
-- Document information
-- Audio duration
-
-### Level 3: Advanced Analysis
-- Reply chain tracking
-- Forward history
-- Entity detection
-- Keyboard button data
-
-### Level 4: Data Export
-- JSON export
-- CSV export
-- Formatted text
-- Complete API response
-
----
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. Push to GitHub
-2. Connect to Vercel
-3. Set environment variables
-4. Auto-deploy on push
-
-### Other Platforms
-
+### Local Testing
 ```bash
-# Build
-npm run build
-
-# Output directory: dist/
-```
-
-Works on:
-- ✅ Vercel
-- ✅ Heroku
-- ✅ Railway
-- ✅ Replit
-- ✅ AWS Lambda
-- ✅ Local server
-
----
-
-## 📊 Data Extracted
-
-### Complete List
-
-```javascript
-{
-  // User
-  userId,
-  username,
-  firstName,
-  lastName,
-  languageCode,
-  isBot,
-  isPremium,
-  
-  // Chat
-  chatId,
-  chatType,
-  chatTitle,
-  
-  // Message
-  messageId,
-  timestamp,
-  date,
-  text,
-  caption,
-  
-  // Media
-  photos[],
-  video { duration, resolution },
-  voice { duration },
-  audio { title, duration },
-  document { name, size },
-  
-  // Relations
-  replyTo { messageId, userId },
-  forwardFrom { userId, username },
-  forwardDate,
-  
-  // Extras
-  entities[],
-  buttons[],
-  rawJSON
-}
-```
-
----
-
-## 🤝 Contributing
-
-Want to improve? Fork or modify:
-
-```bash
-# Clone
-git clone https://github.com/amit/rawshot-bot.git
-
-# Modify code
-# Build & test
-npm run build
 npm run dev
-
-# Push changes
-git push origin main
+# Message @botname on Telegram
 ```
 
----
+### Live Testing
+1. Search `@rawshot_bot` on Telegram
+2. Send `/start`
+3. Try `/info` command
+4. Forward any message to extract data
 
-## 📝 License
+## 🔄 Deployment Steps
 
-MIT License - Free to use, modify, and distribute!
+### GitHub Setup
+```bash
+git init
+git add .
+git commit -m "Initial commit: RawShot Bot"
+git remote add origin https://github.com/YOUR_USERNAME/rawshot-bot.git
+git branch -M main
+git push -u origin main
+```
 
----
-
-## 🎯 Roadmap
-
-- [x] Basic data extraction
-- [x] Media information
-- [x] JSON export
-- [x] CSV export
-- [ ] Database integration (optional)
-- [ ] Analytics dashboard
-- [ ] Batch processing
-- [ ] API access
-
----
-
-## 💡 Tips & Tricks
-
-### Extract from Groups
-1. Add bot to group
-2. Forward message to bot
-3. See complete data
-
-### Track Message Chains
-Forward a reply to see:
-- Original message ID
-- Reply chain
-- All participants
-
-### Analyze Media
-Forward media message to see:
-- Exact dimensions
-- File size
-- MIME type
-- Duration (for video/audio)
-
-### Export Data
-Bot automatically sends:
-- JSON file (if large)
-- CSV file (for spreadsheets)
-- Formatted text (readable)
-
----
-
-## ❓ FAQ
-
-**Q: Is the bot free?**
-A: Yes, completely free! No ads, no payments.
-
-**Q: Does it store my data?**
-A: No data is stored unless you add a database. Messages are processed and forgotten.
-
-**Q: Can it read private chats?**
-A: No, you must forward the message manually.
-
-**Q: Works with channels?**
-A: Yes, if bot is admin in channel.
-
-**Q: Can I host it myself?**
-A: Yes, works on any Node.js server.
-
----
+### Vercel Setup
+1. Go to vercel.com
+2. Click "New Project"
+3. Select your GitHub repository
+4. Add Environment Variables:
+   - `BOT_TOKEN`: Your bot token
+   - `ADMIN_ID`: Your Telegram ID
+5. Deploy!
 
 ## 🐛 Troubleshooting
 
-**Bot not responding?**
+### Bot not responding?
 - Check BOT_TOKEN in .env
-- Verify bot is started
+- Verify bot is running in Vercel
 - Check Vercel logs
 
-**Build errors?**
+### Build fails?
 ```bash
-npm run build  # Rebuild
-npx tsc --noEmit  # Check errors
+npm install
+npm run build
 ```
 
-**Webhook issues?**
-```bash
-curl "https://api.telegram.org/bot{TOKEN}/getWebhookInfo"
-```
-
----
+### Local test error?
+- Node version: v18+
+- Check environment variables
+- Verify BOT_TOKEN format
 
 ## 📞 Support
 
-- **Questions?** Open an issue on GitHub
-- **Bug reports?** Describe with example
-- **Feature requests?** Tell us your use case
+- Issues? Check GitHub repo
+- Telegram? Message @rawshot_bot
+- Questions? Read documentation
 
----
+## 📝 License
 
-## 🎉 Get Started Now!
+MIT License - Free to use and modify!
+
+## 🎉 Get Started
 
 ```bash
-# 1. Clone this repo
-git clone <repo-url>
-
-# 2. Install
-npm install
-
-# 3. Configure
-cp .env.example .env
-# Edit .env with your token
-
-# 4. Run
-npm run dev
-
-# 5. Deploy
-vercel --prod
+1. npm install
+2. cp .env.example .env
+3. Add your bot token to .env
+4. npm run build
+5. vercel --prod
 ```
 
----
-
-**Made with ❤️ by Amit Yadav**
-
-🚀 **Happy extracting!**
+**Happy extracting!** 🚀

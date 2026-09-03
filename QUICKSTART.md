@@ -1,78 +1,68 @@
-# ⚡ RawShot Bot - Quick Start (5 Minutes)
+# ⚡ RawShot Bot - 5 Minute Quick Start
 
-**सबसे तेज़ तरीका bot को चलाने का!**
+**सबसे तेज़ तरीका bot को launch करने का!**
 
----
+## 🚀 Step 1: Get Bot Token (2 min)
 
-## 🚀 Super Quick Setup
-
-### Step 1: Setup Files (30 seconds)
-```bash
-# Create folder
-mkdir rawshot-bot
-cd rawshot-bot
-
-# Put these files in the folder:
-# - rawshot-bot.ts
-# - package.json
-# - tsconfig.json
-# - .env.example
-# - README.md
-# - SETUP.md
+```
+1. Telegram खोलो
+2. @BotFather को search करो
+3. /newbot भेजो
+4. Bot का name enter करो: RawShot
+5. Bot का username enter करो: rawshot_bot
+6. Token copy करो
 ```
 
-### Step 2: Install (1 minute)
+**Token मिल गया? अगले step पर जाओ! ✅**
+
+## 📁 Step 2: Download & Setup (2 min)
+
+```bash
+# All files download करो
+# Extract करो
+
+# Folder में जाओ
+cd rawshot-bot
+
+# .env file बनाओ
+cp .env.example .env
+```
+
+## 🔑 Step 3: Add Bot Token (1 min)
+
+**`.env` file को edit करो:**
+
+```
+BOT_TOKEN=your_token_here_paste_करो
+ADMIN_ID=6924478999
+```
+
+## 📦 Step 4: Install (1 min)
+
 ```bash
 npm install
 ```
 
-### Step 3: Configure (.env file)
-Create `.env` file:
-```
-BOT_TOKEN=8974371850:AAHL4aj6iNVhL9DhiuwAL6-O8x1jsMAn7kU
-ADMIN_ID=6924478999
-```
+## 🌐 Step 5: Deploy (1-2 min)
 
-### Step 4: Build (30 seconds)
-```bash
-npm run build
-```
-
-### Step 5: Test Locally (Optional, 1 minute)
-```bash
-npm run dev
-```
-
-Then message `@rawshot_bot` on Telegram!
-
----
-
-## 🌐 Deploy to Vercel (3 Minutes)
-
-### Option A: Using GitHub (Easiest)
+### Option A: GitHub + Vercel (Recommended)
 
 ```bash
-# Initialize git
+# GitHub पर upload करो
 git init
 git add .
 git commit -m "RawShot Bot"
-
-# Create repo on GitHub.com
-# Then:
 git remote add origin https://github.com/YOUR_USERNAME/rawshot-bot.git
 git branch -M main
 git push -u origin main
+
+# Vercel पर जाओ
+# New Project → Select GitHub repo
+# Add env variables
+# Deploy! 🎉
 ```
 
-Then:
-1. Go to https://vercel.com
-2. Click "New Project"
-3. Select GitHub repository
-4. Click "Import"
-5. Add environment variables
-6. Done! 🎉
-
-### Option B: Direct Vercel Deploy
+### Option B: Direct Vercel
 
 ```bash
 npm i -g vercel
@@ -80,60 +70,37 @@ vercel login
 vercel --prod
 ```
 
----
-
-## ✅ That's it!
-
-Your bot is now **live and ready to use!**
+## ✅ Test करो (1 min)
 
 ```
-Search for @rawshot_bot on Telegram
-Forward any message
-See the magic happen! ✨
+1. Telegram खोलो
+2. @rawshot_bot search करो
+3. /start भेजो
+4. कोई message forward करो
+5. Bot data extract करेगा! ✨
 ```
 
 ---
 
-## 🎯 Commands to Try
+## 🎯 Done! Bot Live है! 🎉
+
+**Total Time: ~10 minutes**
 
 ```
-/start     - Welcome message
-/help      - Help info
-/info      - Your account info
-
-Forward any message → Get all data extracted!
+✅ Bot running
+✅ Data extracting
+✅ Deployed on Vercel
+✅ Auto-updating
 ```
 
 ---
 
-## 📊 What Gets Extracted
+## 🆘 Issues?
 
-When you forward a message, you'll get:
-
-✅ User ID & Username
-✅ Chat ID & Type
-✅ Message ID & Date
-✅ Photo/Video/Document info
-✅ Reply/Forward tracking
-✅ Complete JSON
-✅ CSV export
+- **Bot token नहीं है?** → BotFather से नया बनाओ
+- **Deploy failed?** → Check Vercel logs
+- **Bot respond नहीं कर रहा?** → Wait 2-3 min, फिर try करो
 
 ---
 
-## 🔄 Need Help?
-
-- **Local issues?** → Read `SETUP.md`
-- **Deployment issues?** → Check Vercel logs
-- **Code issues?** → Look at `README.md`
-
----
-
-## 🎉 You're Done!
-
-**Enjoy your new bot!** 🚀
-
-Questions? You can modify the code anytime!
-
----
-
-**Happy extracting!** 📊
+**Ready? Let's go!** 🚀
