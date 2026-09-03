@@ -258,23 +258,23 @@ Forward any message to extract its data! 📬
     }
 
     // Forward Info
-    if (message.forward_from) {
+    if ((message as any).forward_from) {
       data.forward_from = {
-        id: message.forward_from.id,
-        first_name: message.forward_from.first_name,
-        username: message.forward_from.username,
+        id: (message as any).forward_from.id,
+        first_name: (message as any).forward_from.first_name,
+        username: (message as any).forward_from.username,
       };
     }
 
-    if (message.forward_from_chat) {
+    if ((message as any).forward_from_chat) {
       data.forward_from_chat = {
-        id: message.forward_from_chat.id,
-        type: message.forward_from_chat.type,
-        title: (message.forward_from_chat as any).title,
+        id: (message as any).forward_from_chat.id,
+        type: (message as any).forward_from_chat.type,
+        title: (message as any).forward_from_chat.title,
       };
     }
 
-    data.forward_date = message.forward_date;
+    data.forward_date = (message as any).forward_date;
     data.entities = message.entities;
     data.caption_entities = message.caption_entities;
     data.reply_markup = message.reply_markup;
