@@ -125,7 +125,7 @@ Copy all these files:
 ### Step 3: Setup Environment
 ```
 Create .env file:
-  BOT_TOKEN=8974371850:AAHL4aj6iNVhL9DhiuwAL6-O8x1jsMAn7kU
+  BOT_TOKEN=your_token_here
   ADMIN_ID=6924478999
 ```
 
@@ -181,7 +181,7 @@ Cost:       Free! 🎉
 
 - [ ] All files downloaded/copied
 - [ ] Node.js installed (v18+)
-- [ ] Bot token ready: `8974371850:AAHL4aj6iNVhL9DhiuwAL6-O8x1jsMAn7kU`
+- [ ] Bot token ready: `bot_token`
 - [ ] User ID ready: `6924478999`
 - [ ] Vercel account (if deploying)
 - [ ] GitHub account (recommended)
