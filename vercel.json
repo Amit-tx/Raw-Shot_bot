@@ -1,4 +1,11 @@
 {
+  "version": 2,
   "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "functions": {
+    "api/webhook.ts": {
+      "runtime": "nodejs18.x",
+      "memory": 512,
+      "maxDuration": 30
+    }
+  }
 }
